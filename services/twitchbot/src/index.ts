@@ -10,7 +10,7 @@ const client = new tmi.Client({
     username: process.env.TWITCH_USERNAME,
     password: process.env.TWITCH_TOKEN,
   },
-  channels: channels,
+  channels: channels.concat(process.env.TWITCH_USERNAME ?? ""),
 });
 
 client.connect().catch(console.error);
@@ -455,7 +455,9 @@ async function length(
   message: string
 ) {
   try {
+    
     const redis = await initRedis();
+    
 
     const length = await getQueueLength(redis, channel);
 
