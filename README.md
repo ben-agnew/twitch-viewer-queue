@@ -40,11 +40,6 @@ docker compose up -d
 
 To get the bot to join your channel.
 
-**Parameters:**
-
-- ``channel``: _String_ - Channel name (Required)
-- ``message``: _String_ - Message (Required)
-
 ~~~ 
 !joinchannel
 ~~~
