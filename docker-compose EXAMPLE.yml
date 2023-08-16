@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  cache:
+    image: redis
+  twitchbot:
+    build:
+      context: ./services/twitchbot/
+    depends_on:
+      - cache
+    environment:
+      - TWITCH_TOKEN=oauth:xxx
+      - TWITCH_USERNAME=xxxx
+      - TWITCH_CHANNELS=xxxx
+      - REDIS_URL=cache
+      - REDIS_PORT=6379
